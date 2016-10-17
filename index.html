@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>World Peace</title>
+        <style>
+         @font-face {
+             font-family: 'Lato';
+             src: url('Lato-Regular.ttf');
+         }
+         @media only screen and (max-width: 480px) {
+             header.responsive {
+                 padding-bottom: 3rem;
+             }
+             header.responsive form input {
+                 max-width: 14.025rem;
+                 margin-bottom: 0;
+                 width: 100%;
+             }
+             header.responsive form button,
+             header.responsive form select {
+                 max-width: 16rem;
+                 width: 100%;
+             }
+             header.responsive h1 {
+                 font-size: 1.8rem;
+             }
+             header.responsive h2 {
+                 font-size: 1rem;
+                 margin-top: 1rem;
+             }
+             #content.responsive {
+                 margin-top: 51rem;
+             }
+             #content.responsive li {
+                 margin: 0 0 1.5rem 0;
+                 width: 100%;
+             }
+             .mobile {
+                 max-width: 10rem;
+                 display: block !important;
+             }
+         }
+         ::selection {
+             background: #4FC3A0; /* WebKit/Blink Browsers */
+         }
+         ::-moz-selection {
+             background: #4FC3A0; /* Gecko Browsers */
+         }
+         body, html {
+             background: #474A66;
+             color: #F2F2F2;
+             font-family: 'Lato', 'Helvtica Neue', 'Helvetica', 'Arial', sans-serif;
+             margin: 0;
+             padding: 0;
+             text-align: center;
+         }
+         a {
+             -webkit-transition: 1s color;
+             transition: 1s color;
+             color: #4098E4;
+             text-decoration: none;
+         }
+         a:hover {
+             color: #26DDFF;
+         }
+         header {
+             background: #383A5D;
+             color: #F2F2F2;
+             margin-bottom: 3.25rem;
+             padding: 9.5rem 0 5rem 0;
+             position: absolute;
+             z-index: 0;
+         }
+         header h1 {
+             text-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+             letter-spacing: -0.075rem;
+             font-size: 2.25rem;
+             margin: 0 0 -1rem 0;
+         }
+         header h2 {
+             font-size: 1.25rem;
+             opacity: 0.75;
+         }
+         header form {
+             margin: 2rem 0;
+         }
+         header form button {
+             background: #FF5A2F;
+             border: 0;
+             border-bottom: 2px solid #CE120F;
+             border-radius: 8px;
+             color: #F9F9F9;
+             cursor: pointer;
+             font-size: 1.25rem;
+             font-weight: bold;
+             max-width: 21rem;
+             padding: 1rem;
+             text-shadow: 2px 2px rgba(0, 0, 0, 0.15);
+             width: 100%;
+         }
+         header form input {
+             -webkit-transition: 1s opacity;
+             transition: 1s opacity;
+             background: #F2F2F2;
+             border: 1px solid #C5C5C5;
+             border-radius: 3px;
+             font-size: 1rem;
+             margin: 0.425rem;
+             opacity: 0.9;
+             padding: 0.75rem 1rem;
+         }
+         header form input:hover {
+             opacity: 1;
+         }
+         header form select {
+             -webkit-appearance: none;
+             -moz-appearance: none;
+             -webkit-transition: 1s opacity;
+             transition: 1s opacity;
+             appearance: none;
+             background: #F2F2F2;
+             border-width: 0px;
+             border-bottom: 3px solid #C5C5C5;
+             cursor: pointer;
+             font-size: 1rem;
+             margin: 0.5rem 0 1rem 0;
+             max-width: 21rem;
+             opacity: 0.9;
+             padding: 0.75rem 1rem;
+             width: 100%;
+         }
+         header form select:hover {
+             opacity: 1;
+         }
+         main {
+             display: inline-block;
+         }
+         nav {
+             background: #383A5D;
+             padding: 1.5rem 0;
+             position: fixed;
+             width: 100%;
+             text-align: left;
+             z-index: 1;
+         }
+         nav .controls {
+             margin-right: 1.5rem;
+         }
+         nav .controls button {
+             background: #4098E4;
+             border: 1px solid #255D99;
+             border-radius: 4px;
+             color: #F2F2F2;
+             cursor: pointer;
+             font-size: 1rem;
+             padding: 0.75rem;
+         }
+         nav a img.logo {
+             -webkit-transition: opacity 1s;
+             transition: opacity 1s;
+             opacity: 0.25;
+         }
+         nav a:hover img.logo {
+             opacity: 1;
+         }
+         nav img.logo {
+             margin: -0.0125rem 0 0 1.35rem;
+             width: 2.5rem;
+         }
+         nav .title {
+             display: inline-block;
+             font-size: 1.5rem;
+             font-weight: bolder;
+             margin-left: 2rem;
+         }
+         #content {
+             margin-top: 47rem;
+         }
+         #content h1 {
+             font-size: 1.5rem;
+         }
+         #content ul {
+             list-style: none;
+             padding-left: 0;
+         }
+         #content ul li {
+             display: inline-block;
+             vertical-align: text-top;
+             margin: 1rem;
+             width: 40%;
+         }
+         #content ul.features p {
+             margin-left: 10%;
+             width: 80%;
+         }
+         #disclaimer {
+             background-color: #191111;
+             color: #666666;
+             font-size: 10px;
+             padding-bottom: 2rem;
+         }
+         #disclaimer span {
+             display: block;
+         }
+         #form-note {
+             color: #DEDFE2;
+             font-size: 12px;
+             opacity: 0.5;
+         }
+         #rainbow {
+             height: 8px;
+             width: 100%;
+             position: absolute;
+             margin: 0;
+             font-size: 0;
+             top: 0;
+             left: 0;
+             overflow: hidden;
+             white-space: nowrap;
+         }
+         #rainbow .stripe {
+             display: inline-block;
+             height: 16px;
+             width: 20%;
+         }
+         #rainbow .stripe:nth-child(1) { background: #482344; }
+         #rainbow .stripe:nth-child(2) { background: #2B5166; }
+         #rainbow .stripe:nth-child(3) { background: #429867; }
+         #rainbow .stripe:nth-child(4) { background: #FAB243; }
+         #rainbow .stripe:nth-child(5) { background: #E02130; }
+         a#scroll-to-top {
+             color: #D2D2D2;
+             font-size: 1.25rem;
+         }
+         a#scroll-to-top:hover {
+             color: #F2F2F2;
+         }
+         .chevron {
+             -ms-transform: rotate(270deg); /* IE 9 */
+             -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+             transform: rotate(270deg);
+             font-size: 4rem;
+             position: relative;
+         }
+         .chevron:before {
+             content: "›";
+         }
+         .container {
+             max-width: 66rem;
+             width: 100%;
+         }
+         .container.full-width {
+             max-width: 100%;
+         }
+         .container#peace {
+             background-color: #00042B;
+             background-size: cover;
+             background-image: url('img/peace.jpg');
+             background-repeat: none;
+             height: 65vh;
+         }
+         .container#video {
+             background-color: #191111;
+             padding: 2.5rem 0;
+         }
+         .container#video iframe {
+             max-width: 720px;
+             height: 420px;
+             margin-bottom: 2.425rem;
+             width: 100%;
+         }
+         .float {
+             animation: 2s float infinite;
+         }
+         .icon.analytics {
+             width: 7.5rem;
+         }
+         .icon.earth {
+             width: 7rem;
+         }
+         .icon.reunion {
+             margin: 0.5rem;
+             width: 6rem;
+         }
+         .icon.rocket {
+             width: 5.5rem;
+         }
+         .inline-block {
+             display: inline-block;
+         }
+         .mobile {
+             display: none;
+         }
+         .right {
+             display: inline-block;
+             float: right;
+         }
+         .uppercase {
+             text-transform: uppercase;
+         }
+         @keyframes float {
+             0% {
+                 top: 1rem;
+             }
+             50% {
+                 top: 0;
+             }
+             100% {
+                 top: 1rem;
+             }
+         }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div id="rainbow">
+                <span class="stripe"></span>
+                <span class="stripe"></span>
+                <span class="stripe"></span>
+                <span class="stripe"></span>
+                <span class="stripe"></span>
+            </div>
+            <a href="#">
+                <img class="logo" src="img/peace.png">
+            </a>
+            <div class="controls right">
+                <button>Login</button>
+            </div>
+        </nav>
+        <header class="container full-width responsive">
+            <h1>&ldquo;War is over... if you want it.&rdquo;</h1>
+            <h2>Sign up for World Peace today.</h2>
+            <form>
+                <input placeholder="First name"><br class="mobile"/>
+                <input placeholder="Last name"><br/>
+                <input placeholder="Email"><br class="mobile"/>
+                <input type="password" placeholder="Create a password"><br/>
+                <select>
+                    <option selected disabled>How did you hear about us?</option>
+                    <option>Email/Newsletter</option>
+                    <option>Friend or family</option>
+                    <option>Google.com</option>
+                    <option>Other</option>
+                </select>
+                <br/>
+                <button type="submit">Create your free account</button>
+                <div class="chevron float"></div>
+            </form>
+            <span id="form-note">
+                This is a design mockup. None of your information is transmitted.
+            </span>
+        </header>
+        <main class="container">
+            <div id="content" class="responsive">
+                <h1>What's in it for me?</h1>
+                <ul class="features">
+                    <li>
+                        <img alt="Reunion" class="icon reunion" src="img/reunion.svg">
+                        <h2>A friendlier planet</h2>
+                        <p>
+                            Say goodbye to Internet trolling. With
+                            World Peace, you can rest assured that
+                            all members of your species will just
+                            calm the **** down and get along for
+                            once. Meet real friends in your area!
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="Planet earth" class="icon earth" src="img/earth.svg">
+                        <h2>A cleaner planet</h2>
+                        <p>
+                            100% renewable energy and almost
+                            no carbon footprint. The new World
+                            Peace is designed from the ground up
+                            to be totally clean and efficient.
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="Rocket" class="icon rocket" src="img/rocket.svg">
+                        <h2>Tech 2.0</h2>
+                        <p>
+                            New features. A new frontier. Develop
+                            technology that will help everyone
+                            by focusing your energy on that rather
+                            than senseless conflicts. It just works.
+                        </p>
+                    </li>
+                    <li>
+                        <img alt="Rocket" class="icon rocket" src="img/analytics.svg">
+                        <h2>Big savings</h2>
+                        <p>
+                            War is not only deadly to you but to
+                            your wallet. World Peace helps your
+                            species save money by making sure
+                            it don't waste it on weapons of mass
+                            destruction. Upgrade to <strong>World
+                            Peace Pro</strong> and gain A.I.
+                            Protection (currently in beta).
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <div class="container full-width" id="peace"></div>
+        <div class="container full-width" id="video">
+            <iframe src="https://www.youtube.com/embed/VOgFZfRVaww" frameborder="0" allowfullscreen></iframe><br/>
+            <a id="scroll-to-top" href="#">Sign up today</a>
+        </div>
+        <footer id="disclaimer">
+            <span>World Peace is provided to you by the Galactic Counsel of Helpful Aliens. Contact your nearest interstellar communication facility for more information.</span>
+            <span>'Analytics' icon made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+            <span>'Planet earth' icon made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.</span>
+            <span>'Reunion' icon made by <a href="http://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.</span>
+            <span>'Rocket' icon made by <a href="http://www.flaticon.com/authors/popcorns-arts" title="Popcorns Arts">Popcorns Arts</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></span>
+        </footer>
+    </body>
+</html>
